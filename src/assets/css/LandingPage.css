@@ -1,0 +1,78 @@
+.img-xxx {
+    animation: bouncex 5s infinite;
+}
+@keyframes bouncex {
+    0% {
+        transform: translateY(0);
+        animation-timing-function: ease;
+    }
+    30% {
+        transform: translateY(14px);
+        animation-timing-function: ease;
+    }
+    50% {
+        transform: translateY(-20px);
+        animation-timing-function: ease;
+    }
+    70% {
+        transform: translateY(-25px);
+        animation-timing-function: ease;
+    }
+    100% {
+        transform: translateY(0);
+        animation-timing-function: ease;
+    }
+}
+.img-animacion2 {
+    animation: levitate 5s infinite;
+}
+
+@keyframes levitate {
+    0% {
+        transform: translateY(0);
+        animation-timing-function: ease;
+    }
+    30% {
+        transform: translateY(-20px);
+        animation-timing-function: ease;
+    }
+    50% {
+        transform: translateY(12px);
+        animation-timing-function: ease;
+    }
+    70% {
+        transform: translateY(-25px);
+        animation-timing-function: ease;
+    }
+    100% {
+        transform: translateY(0);
+        animation-timing-function: ease;
+    }
+}
+
+.triangulo::before {
+    content: '';
+    border-top-left-radius: 50% 100%;
+    border-top-right-radius: 50% 100%;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #2c3e50;
+    height: 25%;
+}
+
+.img-animacion3 {
+    animation: levitatex 6s infinite;
+}
+
+@keyframes levitatex {
+    0%, 100% {
+        transform: translateY(0);
+        animation-timing-function: linear;
+    }
+
+    50% {
+        transform: translateY(5px);
+        animation-timing-function: linear;
+    }
+}
