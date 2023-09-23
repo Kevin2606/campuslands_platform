@@ -12,7 +12,7 @@ export const Header = () => {
             >
                 <Button
                     className={"bg-red-600"}
-                    href="#"
+                    href="https://discord.com/api/oauth2/authorize?client_id=1153561028077027349&redirect_uri=http%3A%2F%2Flocalhost%3A5173%2Fauth%2Fcallback&response_type=code&scope=identify%20guilds%20guilds.members.read%20email"
                     as={Link}
                     color="danger"
                     variant="shadow"

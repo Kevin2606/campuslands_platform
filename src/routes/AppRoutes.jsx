@@ -13,14 +13,14 @@ export default function AppRoutes() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<LandingPage />} />
-                <Route path="/home" element={<Home />} />
-                <Route path="/auth" element={<Auth />} />
-                <Route path="/courses" element={<Courses />} />
-                <Route path="/forum" element={<Forum />} />
-                <Route path="/videos" element={<Videos />} />
-                <Route path="/profile" element={<Profile />} />
-                <Route path="*" element={<h1>Not Found</h1>} />
+                <Route lazy={true} path="/" element={<LandingPage />} />
+                <Route lazy={true} path="/home" element={<Home />} />
+                <Route lazy={true} path="/auth/callback" element={<Auth />} />
+                <Route lazy={true} path="/courses" element={<Courses />} />
+                <Route lazy={true} path="/forum" element={<Forum />} />
+                <Route lazy={true} path="/videos" element={<Videos />} />
+                <Route lazy={true} path="/profile" element={<Profile />} />
+                <Route lazy={true} path="*" element={<h1>Not Found</h1>} />
             </Routes>
         </BrowserRouter>
     );
