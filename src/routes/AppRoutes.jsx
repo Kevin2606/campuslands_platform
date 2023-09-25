@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { LandingPage } from "../components/home/landingPage/LandingPage";
 
 import { Home } from "../containers/Home";
 import { Auth } from "../containers/Auth";
@@ -13,8 +12,7 @@ export default function AppRoutes() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route lazy={true} path="/" element={<LandingPage />} />
-                <Route lazy={true} path="/home" element={<Home />} />
+                <Route lazy={true} path="/" element={<Home />} />
                 <Route lazy={true} path="/auth/callback" element={<Auth />} />
                 <Route lazy={true} path="/courses" element={<Courses />} />
                 <Route lazy={true} path="/forum" element={<Forum />} />
