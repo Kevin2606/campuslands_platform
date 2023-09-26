@@ -7,5 +7,5 @@ export const PrivateRoutes = ({Component}) => {
     const { pathname, search } = useLocation();
     const lastPath = pathname + search;
     localStorage.setItem("lastPath", lastPath);
-    return !isAuthenticated ? Component : <Navigate to="/" />;
+    return isAuthenticated ? Component : <Navigate to="/" />;
 };

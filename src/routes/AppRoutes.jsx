@@ -9,14 +9,6 @@ import { Profile } from "../containers/Profile";
 import { PrivateRoutes } from "./PrivateRoutes";
 //import { PublicRoutes } from "./PublicRoutes";
 
-const Prueba = ({ Component }) => {
-    return (
-        <div>
-            <h1>HOLAS</h1>
-            {Component}
-        </div>
-    );
-};
 
 export default function AppRoutes() {
     return (
