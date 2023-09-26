@@ -1,24 +1,34 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-
 import { Home } from "../containers/Home";
 import { Auth } from "../containers/Auth";
 import { Courses } from "../containers/Courses";
 import { Forum } from "../containers/Forum";
 import { Videos } from "../containers/Videos";
 import { Profile } from "../containers/Profile";
+import { PrivateRoutes } from "./PrivateRoutes";
+//import { PublicRoutes } from "./PublicRoutes";
+
+const Prueba = ({ Component }) => {
+    return (
+        <div>
+            <h1>HOLAS</h1>
+            {Component}
+        </div>
+    );
+};
 
 export default function AppRoutes() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route lazy={true} path="/" element={<Home />} />
-                <Route lazy={true} path="/auth/callback" element={<Auth />} />
-                <Route lazy={true} path="/courses" element={<Courses />} />
-                <Route lazy={true} path="/forum" element={<Forum />} />
-                <Route lazy={true} path="/videos" element={<Videos />} />
-                <Route lazy={true} path="/profile" element={<Profile />} />
-                <Route lazy={true} path="*" element={<h1>Not Found</h1>} />
+                <Route path="/" element={<Home />} />
+                <Route path="/auth/callback" element={<Auth />} />
+                <Route path="/courses" element={<PrivateRoutes Component={<Courses />} />} />
+                <Route path="/blog" element={<PrivateRoutes Component={<Forum />} />} />
+                <Route path="/videos" element={<PrivateRoutes Component={<Videos />} />} />
+                <Route path="/profile" element={<PrivateRoutes Component={<Profile />} />} />
+                <Route path="*" element={<h1>Not Found</h1>} />
             </Routes>
         </BrowserRouter>
     );
