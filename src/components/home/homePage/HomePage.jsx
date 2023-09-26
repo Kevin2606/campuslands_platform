@@ -4,7 +4,7 @@ import { CardCursos } from "./CardCursos";
 export const HomePage = () => {
     return (
         <>
-            <div className="pt-5">
+            <div className="pt-5 h-full">
                 <header>
                     <div className="flex fle-row justify-around">
                         <h1>Blog</h1>
@@ -22,16 +22,18 @@ export const HomePage = () => {
                             <img src="https://placehold.co/400" alt="" />
                         </div>
                     </div>
-                    <div className="flex flex-col">
-                        <h1>Cursos</h1>
-                        <CardCursos />
-                        <CardCursos />
-                        <CardCursos />
-                        <CardCursos />
-                        <CardCursos />
-                        <CardCursos />
-                        <CardCursos />
-                        <CardCursos />
+                    <div className="flex flex-col items-center gap-5">
+                        <h1 className="p-5 text-4xl">Cursos</h1>
+                        <div className="flex flex-row flex-wrap justify-center flex-shrink gap-10">
+                            <CardCursos />
+                            <CardCursos />
+                            <CardCursos />
+                            <CardCursos />
+                            <CardCursos />
+                            <CardCursos />
+                            <CardCursos />
+                            <CardCursos />
+                        </div>
 
                     </div>
                 </main>
