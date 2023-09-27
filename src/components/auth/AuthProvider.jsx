@@ -10,10 +10,6 @@ const init = () => {
 
 const AuthProvider = ({ children }) => {
     const [authState, dispatch] = useReducer(authReducer, {}, init);
-    //const [searchParams] = useSearchParams();
-    //const { data, loading, error } = postAuth(searchParams.get("code"));
-    //if (loading) return null;
-    //if (error || data?.error) localStorage.removeItem("user");
     const login = (data) => {
         const dataClonada = structuredClone(data);
         localStorage.setItem("user", JSON.stringify(data));

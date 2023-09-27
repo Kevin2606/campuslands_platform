@@ -1,5 +1,6 @@
 import React from "react";
 import { Navigator } from "../components/navigator/Navigator";
+import { CardAutor } from "../components/blog/CardAutor";
 
 export const BlogDetail = ({
     title = "Titulo",
@@ -24,12 +25,20 @@ export const BlogDetail = ({
             <Navigator />
             <section>
                 <div className="h-[350px] w-[2080px] absolute top-0 -z-10">
-                    <img src={imageBackground} height="100%" width="100%" alt="" />
+                    <img
+                        src={imageBackground}
+                        height="100%"
+                        width="100%"
+                        alt="Imagen de fondo"
+                    />
                 </div>
-                <div className="flex flex-col items-center justify-center">
+                <div className="flex flex-col items-center gap-10">
                     <div className="w-[1250px] h-[350]">
-                        <img height="100%" width="100%" src={imageUrl} alt="" />
+                        <img height="100%" width="100%" src={imageUrl} alt={altImg} />
                     </div>
+                    <h1 className="text-6xl">{title}</h1>
+                    <p className="w-[1250px]">{content}</p>
+                    <CardAutor {...autor} createdAt={createdAt} />
                 </div>
             </section>
         </>
