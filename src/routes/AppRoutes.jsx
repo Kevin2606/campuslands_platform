@@ -20,7 +20,7 @@ export default function AppRoutes() {
                 <Route path="/courses" element={<PrivateRoutes Component={<Courses />} />} />
                 <Route path="/blog" element={<PrivateRoutes Component={<Blog />} />} />
                 <Route path="/blog/:title" element={<PrivateRoutes Component={<BlogDetail />} />} />
-                <Route path="/videos" element={<PrivateRoutes Component={<Videos />} />} />
+                <Route path="/videos/:name_curso" element={<PrivateRoutes Component={<Videos />} />} />
                 <Route path="/profile" element={<PrivateRoutes Component={<Profile />} />} />
                 <Route path="*" element={<h1>Not Found</h1>} />
             </Routes>
