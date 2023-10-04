@@ -22,8 +22,8 @@ const SvgVerMas = () => {
 export const Blog = () => {
     return (
         <>
-            <Navigator />
-            <section>
+            <section className="bg-[#222831]">
+                <Navigator />
                 {/* flex flex-row justify-around items-center h-96 border-b */}
                 <div className="flex flex-col justify-around items-center h-96 border-b lg:flex-row">
                     <div className="flex flex-col gap-10">
@@ -35,8 +35,7 @@ export const Blog = () => {
                         </h2>
                     </div>
                     <Button shadow color="warning">
-                        {" "}
-                        Crear blog{" "}
+                        Crear blog
                     </Button>
                 </div>
                 <div className="p-10 pr-0 w-screen overflow-hidden ">

@@ -6,8 +6,8 @@ import './assets/css/main.css'
 //TODO: Envolverlo con React.StrictMode
 ReactDOM.createRoot(document.getElementById('root')).render(
     <NextUIProvider>
-      {/* dark text-foreground bg-[#2c3e50]  */}
-      <main className="dark text-foreground  bg-[#222831]">
+      {/* dark text-foreground bg-[#222831]  */}
+      <main className="dark text-foreground  ">
         <App />
       </main>
     </NextUIProvider>

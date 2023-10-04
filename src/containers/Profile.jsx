@@ -7,7 +7,7 @@ export const Profile = () => {
     const { nick, roles, user } = JSON.parse(localStorage.getItem("user")).usuario;
     return (
         <>
-            <div className="h-screen w-screen">
+            <div className="h-screen w-screen bg-[#222831]">
                 <Navigator />
                 <div>
                     <section className={`flex justify-center`}>

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export const Navigator = () => {
     return (
-        <header className="pt-5 pb-5 w-full border-b bg-none">
+        <header className="relative z-20 pt-5 pb-5 w-full border-b bg-none">
             <div className="flex fle-row justify-around">
                 <Link to="/blog">
                     <h1>Blog</h1>

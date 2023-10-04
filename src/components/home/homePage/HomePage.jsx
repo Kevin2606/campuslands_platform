@@ -62,7 +62,7 @@ export const HomePage = () => {
     };
     return (
         <>
-            <div>
+            <div className="bg-[#222831]">
                 <Navigator />
                 {/* border m-10 mt-0 mb-0 pb-10 */}
                 <main className="pb-10 2xl:border 2xl:m-10 2xl:mt-0 2xl:mb-0">
