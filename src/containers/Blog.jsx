@@ -1,46 +1,85 @@
 import { Navigator } from "../components/navigator/Navigator";
 import { CardBlog } from "../components/blog/CardBlog";
+import { Button } from "@nextui-org/react";
+
+const SvgVerMas = () => {
+    return (
+        <svg
+            className="icon icon-tabler icon-tabler-arrow-big-right-line"
+            fill="none"
+            stroke="#000"
+            strokeLinecap="round"
+            strokeWidth="1.5"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path d="M0 0h24v24H0z" stroke="none" />
+            <path d="M12 9V5.414a1 1 0 011.707-.707l6.586 6.586a1 1 0 010 1.414l-6.586 6.586A1 1 0 0112 18.586V15H6V9h6zM3 9v6" />
+        </svg>
+    );
+};
 
 export const Blog = () => {
-  return (
-    <>
-      <Navigator />
-      <section>
-        <div className="flex flex-row justify-around items-center h-96 border-b">
-          <div className="flex flex-col gap-10">
-            <h1 className="text-4xl">Bienvenido al blog</h1>
-            <h2 className="text-2xl">Texto de lo que trata el blog</h2>          
-          </div>
-          <button>Crear hilo</button>
-        </div>
-        <div className="p-10">
-          <h1 className="p-5 pl-0 w-fit text-3xl">Blogs mas recientes</h1>
-          <div className="flex flex-row gap-16">
-            <CardBlog title='prueba' paramUrl="prueba"  />
-            <CardBlog />
-            <CardBlog />
-            <CardBlog />
-            <CardBlog />
-            <div className="w-min h-96 flex justify-center bg-gray-500">
-              <button>Ver mas</button>
-            </div>
-          </div>
-          <h1 className="p-5 pt-10 pl-0 w-fit text-3xl">Javascript</h1>
-          <div className="flex flex-row gap-16 ">
-            <CardBlog />
-            <CardBlog />
-            <CardBlog />
-            <CardBlog />
-            <CardBlog />
-            <div className="w-min h-96 flex justify-center bg-gray-500">
-              <button>Ver mas</button>
-            </div>
-          </div>
-        </div>
-
-      </section>
-      
-
-    </>
-  )
-}
+    return (
+        <>
+            <Navigator />
+            <section>
+                {/* flex flex-row justify-around items-center h-96 border-b */}
+                <div className="flex flex-col justify-around items-center h-96 border-b lg:flex-row">
+                    <div className="flex flex-col gap-10">
+                        <h1 className="text-4xl font-medium">
+                            Bienvenido al blog
+                        </h1>
+                        <h2 className="text-2xl font-light">
+                            Texto de lo que trata el blog
+                        </h2>
+                    </div>
+                    <Button shadow color="warning">
+                        {" "}
+                        Crear blog{" "}
+                    </Button>
+                </div>
+                <div className="p-10 pr-0 w-screen overflow-hidden ">
+                    <h1 className="p-5 pl-0 w-fit text-3xl">
+                        Blogs mas recientes
+                    </h1>
+                    <div className="flex flex-row gap-14 overflow-y-auto pb-2">
+                        <CardBlog title="prueba" paramUrl="prueba" />
+                        <CardBlog />
+                        <CardBlog />
+                        <CardBlog />
+                        <CardBlog />
+                        <div className="w-min h-96 flex justify-center items-center">
+                            <Button
+                                size="sm"
+                                color="warning"
+                                className="h-full text-2xl"
+                            >
+                                <SvgVerMas />
+                            </Button>
+                        </div>
+                    </div>
+                    <h1 className="p-5 pt-10 pl-0 w-fit text-3xl">
+                        Javascript
+                    </h1>
+                    <div className="flex flex-row gap-14 overflow-y-auto">
+                        <CardBlog />
+                        <CardBlog />
+                        <CardBlog />
+                        <CardBlog />
+                        <CardBlog />
+                        <div className="w-min h-96 flex justify-center items-center">
+                            <Button
+                                size="sm"
+                                color="warning"
+                                className="h-full font-medium"
+                            >
+                                <SvgVerMas />
+                            </Button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </>
+    );
+};
