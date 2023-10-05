@@ -6,13 +6,8 @@ import { useNavigate } from "react-router-dom";
 
 
 export const Profile = () => {
-    const { authState, logout } = useContext(AuthContext);
-    console.log(authState);
-
-    //const { nick, roles, user } = useContext(AuthContext).user.usuario;
-    const { nick, roles, user } = JSON.parse(
-        localStorage.getItem("user")
-    ).usuario;
+    const {  logout, ...rest } = useContext(AuthContext);
+    const { nick, roles, user } = rest.user.usuario;
     const navigate = useNavigate();
     const handleLogout = () => {
         logout();
@@ -52,14 +47,18 @@ export const Profile = () => {
                                     }}
                                     className="w-56 lg:w-96 flex flex-row flex-wrap gap-5 border-y-5 p-5 items-center justify-center"
                                 >
-                                    <p className="text-lg italic" >Camper</p>
-                                    <p className="text-lg italic">Gran Maestro</p>
-                                    <p className="text-lg italic">Moderador</p>
-                                    <p className="text-lg italic">Moderador</p>
-                                    <p className="text-lg italic">Camper</p>
-                                    <p className="text-lg italic">Gran Maestro</p>
-                                    <p className="text-lg italic">Moderador</p>
-                                    <p className="text-lg italic">Moderador</p>
+                                    {
+                                        roles.map((role, index) => {
+                                            return (
+                                                <p
+                                                    key={index}
+                                                    className="text-lg italic"
+                                                >
+                                                    {role}
+                                                </p>
+                                            );
+                                        })
+                                    }
                                 </div>
                                 <Button
                                     style={{
