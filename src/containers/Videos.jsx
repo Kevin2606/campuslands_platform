@@ -52,7 +52,7 @@ export const Videos = () => {
                         </div>
                     </div>
                     {/* Seccion comentarios */}
-                    <CardNewComentario />
+                    {/* <CardNewComentario /> */}
                     {/* Componente comentarios */}
                     <CardComentarios />
                 </div>

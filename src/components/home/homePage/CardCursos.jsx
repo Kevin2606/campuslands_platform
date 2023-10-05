@@ -9,18 +9,23 @@ export const CardCursos = ({ nameCourse, description, patch, srcImg }) => {
     };
 
     return (
-        <div className="flex flex-col items-center border p-10 gap-5 lg:w-1/3 ">
-            <h1 className="w-full text-center text-2xl font-medium">
-                {nameCourse}
-            </h1>
-            <div>
-                <p className="text-lg">{description}</p>
+        <>
+            <div className="flex flex-col items-center border p-10 gap-5 lg:w-1/3 ">
+                <div>
+                    <img src={srcImg} alt="" />
+                </div>
+                <h1 className="w-full text-center text-2xl font-medium">
+                    {nameCourse}
+                </h1>
+                <div>
+                    <p className="text-lg">{description}</p>
+                </div>
+                <div>
+                    <Button color="warning" onPress={pressButton}>
+                        Ver
+                    </Button>
+                </div>
             </div>
-            <div>
-                <Button color="warning" onPress={pressButton}>
-                    Ver
-                </Button>
-            </div>
-        </div>
+        </>
     );
 };
