@@ -5,11 +5,13 @@ const AuthContext = createContext();
 
 const init = () => {
     if (localStorage.getItem("user") === null) return { isAuthenticated: false };
+    if (JSON.parse(localStorage.getItem("user")).error) return { isAuthenticated: false };
     return { isAuthenticated:true, user: JSON.parse(localStorage.getItem("user")) } 
 };
 
 const AuthProvider = ({ children }) => {
     const [authState, dispatch] = useReducer(authReducer, {}, init);
+
     const login = (data) => {
         const dataClonada = structuredClone(data);
         localStorage.setItem("user", JSON.stringify(data));
@@ -27,9 +29,9 @@ const AuthProvider = ({ children }) => {
     return (
         <AuthContext.Provider
             value={{
-                ...authState,
                 login,
                 logout,
+                ...authState,
             }}
         >
             {children}

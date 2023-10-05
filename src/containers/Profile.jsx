@@ -1,17 +1,21 @@
-//import { useContext } from "react";
+import { useContext } from "react";
 import { Navigator } from "../components/navigator/Navigator";
-//import { AuthContext } from "../components/auth/AuthProvider";
+import { AuthContext } from "../components/auth/AuthProvider";
 import { Button } from "@nextui-org/react";
 import { useNavigate } from "react-router-dom";
 
+
 export const Profile = () => {
+    const { authState, logout } = useContext(AuthContext);
+    console.log(authState);
+
     //const { nick, roles, user } = useContext(AuthContext).user.usuario;
     const { nick, roles, user } = JSON.parse(
         localStorage.getItem("user")
     ).usuario;
     const navigate = useNavigate();
     const handleLogout = () => {
-        localStorage.removeItem("user");
+        logout();
         navigate("/");
     };
     return (
