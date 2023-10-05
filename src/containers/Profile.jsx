@@ -14,6 +14,7 @@ export const Profile = () => {
                         <div className="flex flex-col items-center justify-center">
                             <div style={{border: `8px solid ${user.banner_color}`}} className="w-fit relative top-20 rounded-full">
                                 <img
+                                    className="rounded-full"
                                     src={`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=256`}
                                     alt="Imagen de perfil"
                                 />

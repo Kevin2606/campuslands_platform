@@ -24,12 +24,12 @@ export const BlogDetail = ({
     return (
         <>
             <Navigator />
-            <div className="bg-cover bg-center bg-no-repeat w-screen h-20 lg:h-60 xl:h-72 2xl:h-96 lg:border-b-5 lg:border-warning-600  absolute top-0 z-10"
+            <div
+                className="bg-cover bg-center bg-no-repeat w-screen h-20 lg:h-60 xl:h-72 2xl:h-96 lg:border-b-5 lg:border-warning-600  absolute top-0 z-10"
                 style={{
-                    backgroundImage: `url(${imageBackground})`
+                    backgroundImage: `url(${imageBackground})`,
                 }}
-            >
-            </div>
+            ></div>
             <section className="bg-[#222831]">
                 {/* h-[350px] w-[2080px] absolute top-0 -z-10 */}
                 {/* w-[1250px] h-[350] */}
@@ -42,7 +42,13 @@ export const BlogDetail = ({
                     <h1 className="text-4xl">{title}</h1>
                     <p>{content}</p>
                     <CardAutor {...autor} createdAt={createdAt} />
-                    <CardComentarios />
+                    <div className="flex flex-col gap-5">
+                        <h2 className="text-2xl font-medium border-b-1 pb-3">Comentarios</h2>
+                        <CardComentarios />
+                        <CardComentarios />
+                        <CardComentarios />
+
+                    </div>
                 </div>
             </section>
         </>
