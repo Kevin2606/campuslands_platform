@@ -1,5 +1,5 @@
 import { Tooltip, Button } from "@nextui-org/react";
-export const CardAutor = ({ avatar, fullname, username, roles, createdAt }) => {
+export const CardAutor = ({ avatar, fullname, roles, createdAt }) => {
     return (
         <>
             <div className="flex flex-row  items-center justify-between">

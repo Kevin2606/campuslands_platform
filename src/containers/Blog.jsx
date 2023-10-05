@@ -1,6 +1,7 @@
 import { Navigator } from "../components/navigator/Navigator";
 import { CardBlog } from "../components/blog/CardBlog";
 import { Button } from "@nextui-org/react";
+import { useNavigate } from "react-router-dom";
 
 const SvgVerMas = () => {
     return (
@@ -20,11 +21,14 @@ const SvgVerMas = () => {
 };
 
 export const Blog = () => {
+    const navigate = useNavigate();
+    const handleCreateBlog = () => {
+        navigate("/blog/new");
+    };
     return (
         <>
             <section className="bg-[#222831]">
                 <Navigator />
-                {/* flex flex-row justify-around items-center h-96 border-b */}
                 <div className="flex flex-col justify-around items-center h-96 border-b lg:flex-row">
                     <div className="flex flex-col gap-10">
                         <h1 className="text-4xl font-medium">
@@ -34,7 +38,7 @@ export const Blog = () => {
                             Texto de lo que trata el blog
                         </h2>
                     </div>
-                    <Button shadow color="warning">
+                    <Button shadow color="warning" onPress={handleCreateBlog}>
                         Crear blog
                     </Button>
                 </div>
