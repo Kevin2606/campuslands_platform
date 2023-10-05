@@ -10,21 +10,27 @@ import { useParams } from "react-router-dom";
 
 export const Videos = () => {
     const [dataVideos, setDataVideos] = useState([]);
+    const [urlVideos, setUrlVideos] = useState("");
+    const [tituloVideo, setTituloVideo] = useState("");
     const { name_curso } = useParams();
     const getAllVideosCourse = async () => {
-        const url = 
-        `http://192.168.128.23:5010/cursos/v2?course=${name_curso}`
-        //const dataVid = await (await fetch(url)).json();
-        setDataVideos(javascript);
+        const url = `http://192.168.128.23:5010/cursos/v2?course=${name_curso}`;
+        const dataVid = await (await fetch(url)).json();
+        setDataVideos(dataVid);
     };
     useEffect(() => {
         getAllVideosCourse();
     }, []);
 
-    const handleClick = (nameVideo, indexSeccion) => {
+    const handleClick = (nameVideo, indexSeccion, tituloVideo) => {
         console.log(nameVideo, indexSeccion);
         //TODO: llamar a la api para obtener el video
-    }
+        const url = `http://192.168.128.23:5010/cursos/play?course=${name_curso}&seccion=${
+            indexSeccion + 1
+        }&video=${nameVideo}`;
+        setUrlVideos(url);
+        setTituloVideo(tituloVideo)
+    };
 
     return (
         <>
@@ -34,33 +40,49 @@ export const Videos = () => {
                     <div className="flex flex-col lg:flex-row gap-10 lg:gap-5 items-stretch">
                         <div className="flex flex-col gap-5 w-fit lg:w-9/12">
                             <div>
-                                <img
-                                    className="lg:rounded-xl"
-                                    src="https://placehold.co/1280x720"
-                                    alt=""
-                                    height="100%"
-                                    width="100%"
-                                />
+                                {urlVideos !== "" ? (
+                                    <video
+                                        autoPlay
+                                        controls
+                                        className="lg:rounded-xl"
+                                        src={urlVideos}
+                                        alt=""
+                                        height="100%"
+                                        width="100%"
+                                    />
+                                ) : (
+                                    <img
+                                        className="lg:rounded-xl"
+                                        src="https://placehold.co/1280x720"
+                                        alt=""
+                                        height="100%"
+                                        width="100%"
+                                    />
+                                )}
                             </div>
-                            <h1 className="text-3xl pl-2">Titulo video</h1>
+                            <h1 className="text-3xl pl-2">{tituloVideo}</h1>
                         </div>
                         <div className="border-[#666] border-y-1 max-h-56 lg:border-x-1 lg:rounded-xl lg:flex-1 lg:max-h-[26rem] xl:max-h-[31.5rem] 2xl:max-h-[38.5rem] overflow-y-scroll">
                             <Accordion>
-                                {dataVideos?.videos?.map(
-                                    (video, key) => (
-                                        (
-                                            <AccordionItem
-                                                key={key}
-                                                aria-label={video.sectionName}
-                                                title={video.sectionName}
+                                {dataVideos?.videos?.map((video, key) => (
+                                    <AccordionItem
+                                        key={key}
+                                        aria-label={video.sectionName}
+                                        title={video.sectionName}
+                                    >
+                                        {video.videos.map((v, k) => (
+                                            <p
+                                                key={k}
+                                                className="py-1 border-b-1 cursor-pointer"
+                                                onClick={() =>
+                                                    handleClick(v.video, key, v.Titulo)
+                                                }
                                             >
-                                                {video.videos.map((v, k) => (
-                                                    <p key={k} className="py-1 border-b-1 cursor-pointer" onClick={() => handleClick(v.video, key)}>{v.Titulo}</p>
-                                                ))}
-                                            </AccordionItem>
-                                        )
-                                    )
-                                )}
+                                                {v.Titulo}
+                                            </p>
+                                        ))}
+                                    </AccordionItem>
+                                ))}
                             </Accordion>
                         </div>
                     </div>
