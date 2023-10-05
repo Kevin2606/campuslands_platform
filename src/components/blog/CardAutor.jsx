@@ -1,4 +1,5 @@
 import { Tooltip, Button } from "@nextui-org/react";
+import { roles as rolDC} from "../../assets/js/roles"
 export const CardAutor = ({ avatar, fullname, roles, createdAt }) => {
     return (
         <>
@@ -28,7 +29,7 @@ export const CardAutor = ({ avatar, fullname, roles, createdAt }) => {
                                                 className="text-center h-fit text-sm text-white bg-[#393e468c] rounded-full px-2 py-1"
                                                 key={index}
                                             >
-                                                {role}
+                                                {rolDC[role]}
                                             </p>
                                         ))}
                                     </div>

@@ -3,7 +3,7 @@ import { Navigator } from "../components/navigator/Navigator";
 import { AuthContext } from "../components/auth/AuthProvider";
 import { Button } from "@nextui-org/react";
 import { useNavigate } from "react-router-dom";
-
+import { roles as rolDC} from "../assets/js/roles"
 
 export const Profile = () => {
     const {  logout, ...rest } = useContext(AuthContext);
@@ -54,7 +54,7 @@ export const Profile = () => {
                                                     key={index}
                                                     className="text-lg italic"
                                                 >
-                                                    {role}
+                                                    {rolDC[role]}
                                                 </p>
                                             );
                                         })

@@ -1,4 +1,4 @@
-const roles = {
+export const roles = {
     "1106599703484842005": "DarthVader",
     "1113187973350051970": "Gran Maestro",
     "1140417665035415613": "Developer",
