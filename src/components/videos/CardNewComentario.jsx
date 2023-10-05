@@ -1,21 +1,33 @@
 import { useState, useContext } from "react";
 import { Textarea, Button } from "@nextui-org/react";
 import { AuthContext } from "../auth/AuthProvider";
+import { useNavigate } from "react-router-dom";
+const uriServer = import.meta.env.VITE_URI_SERVER_BACKEND
 
-export const CardNewComentario = () => {
+
+export const CardNewComentario = ({ id_padre, title }) => {
+    const navigate = useNavigate();
     const { nick, user } = useContext(AuthContext).user.usuario;
     const [comentario, setComentario] = useState("");
-    const handleComentario = () => {
+    const handleComentario = async () => {
         if (comentario === "") return alert("El comentario es requerido");
         const data = {
+            id_padre,
             comentario,
             createdAt: new Date().toLocaleDateString(),
             autor: {
                 fullname: nick,
                 avatar: `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=256`,
             },
-        };
-        console.log(data);
+        }
+        const result = await fetch(`${uriServer}/comentarios`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        });
+        navigate(0);
     };
 
     return (

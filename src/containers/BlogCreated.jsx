@@ -11,8 +11,11 @@ import {
     Button,
     Spacer,
 } from "@nextui-org/react";
+import { useNavigate } from "react-router-dom";
+const uriServer = import.meta.env.VITE_URI_SERVER_BACKEND
 
 export const BlogCreated = () => {
+    const navigate = useNavigate();
     const { nick, roles, ...rest } = useContext(AuthContext).user.usuario;
 
     const autor = {
@@ -34,9 +37,20 @@ export const BlogCreated = () => {
             [event.target.name]: event.target.value,
         });
     };
-    const handleData = () => {
+    const handleData = async () => {
+        setInputs({
+            ...inputs,
+            imageBackground: "/HRSC-323L.png"
+        });
         const data = {...inputs, createdAt, autor};
-        console.log(data);
+        const result = await fetch(`${uriServer}/blogs`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        });
+        navigate("/blog");
     };
 
     const handleCreateBlog = () => {
@@ -110,8 +124,7 @@ export const BlogCreated = () => {
                                 onChange={handleInputChange}
                                 isRequired
                             >
-                                <SelectItem value="1">Sin imagen</SelectItem>
-                                <SelectItem value="2">Imagen 1</SelectItem>
+                                <SelectItem value="1">Imagen 1</SelectItem>
                             </Select>
                         </div>
                         <Button

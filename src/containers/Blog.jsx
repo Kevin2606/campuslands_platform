@@ -2,6 +2,8 @@ import { Navigator } from "../components/navigator/Navigator";
 import { CardBlog } from "../components/blog/CardBlog";
 import { Button } from "@nextui-org/react";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+const uriServer = import.meta.env.VITE_URI_SERVER_BACKEND
 
 const SvgVerMas = () => {
     return (
@@ -21,10 +23,25 @@ const SvgVerMas = () => {
 };
 
 export const Blog = () => {
+    
     const navigate = useNavigate();
     const handleCreateBlog = () => {
         navigate("/blog/new");
     };
+    const [blogs, setBlogs] = useState([]);
+    const getBlogs = async () => {
+        const result = await fetch(`${uriServer}/blogs`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+        const data = await result.json();
+        setBlogs(data);
+    }
+    useEffect(() => {
+        getBlogs();
+    }, []);
     return (
         <>
             <section className="bg-[#222831]">
@@ -47,11 +64,7 @@ export const Blog = () => {
                         Blogs mas recientes
                     </h1>
                     <div className="flex flex-row gap-14 overflow-y-auto pb-2">
-                        <CardBlog title="prueba" paramUrl="prueba" />
-                        <CardBlog />
-                        <CardBlog />
-                        <CardBlog />
-                        <CardBlog />
+                        {blogs.map((blog, index) => <CardBlog paramUrl={blog.title} key={index} {...blog} />)}
                         <div className="w-min h-96 flex justify-center items-center">
                             <Button
                                 size="sm"
@@ -62,6 +75,10 @@ export const Blog = () => {
                             </Button>
                         </div>
                     </div>
+                    {/*
+                    
+                    
+                    
                     <h1 className="p-5 pt-10 pl-0 w-fit text-3xl">
                         Javascript
                     </h1>
@@ -81,6 +98,7 @@ export const Blog = () => {
                             </Button>
                         </div>
                     </div>
+                */}
                 </div>
             </section>
         </>
