@@ -2,6 +2,7 @@ import { Card } from "@nextui-org/react";
 import { Navigator } from "../components/navigator/Navigator";
 import { CardComentarios } from "../components/videos/CardComentarios";
 import { Accordion, AccordionItem } from "@nextui-org/react";
+import { CardNewComentario } from "../components/videos/CardNewComentario";
 
 export const Videos = () => {
     const defaultContent =
@@ -51,6 +52,7 @@ export const Videos = () => {
                         </div>
                     </div>
                     {/* Seccion comentarios */}
+                    <CardNewComentario />
                     {/* Componente comentarios */}
                     <CardComentarios />
                 </div>

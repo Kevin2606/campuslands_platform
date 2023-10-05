@@ -2,6 +2,7 @@ import React from "react";
 import { Navigator } from "../components/navigator/Navigator";
 import { CardAutor } from "../components/blog/CardAutor";
 import { CardComentarios } from "../components/videos/CardComentarios";
+import { CardNewComentario } from "../components/videos/CardNewComentario";
 
 export const BlogDetail = ({
     title = "Titulo",
@@ -38,6 +39,7 @@ export const BlogDetail = ({
                     <CardAutor {...autor} createdAt={createdAt} />
                     <div className="flex flex-col gap-5">
                         <h2 className="text-2xl font-medium border-b-1 pb-3">Comentarios</h2>
+                        <CardNewComentario />
                         <CardComentarios />
                         <CardComentarios />
                         <CardComentarios />
