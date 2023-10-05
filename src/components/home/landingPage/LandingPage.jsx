@@ -9,23 +9,10 @@ import { Footer } from "./Footer";
 export const LandingPage = () => {
     return (
         <>
-            <img
-                src="/blob.svg"
-                className="img-animacion2 absolute top-32 right-44"
-                height={600}
-                width={600}
-            />
-            <img
-                src="/blob-1.svg"
-                className="img-xxx absolute top-32"
-                height={600}
-                width={600}
-                alt=""
-            />
-            <div className="flex flex-col gap-20">
+            <div className="flex flex-col gap-20 bg-[#222831]">
                 <main>
                     <div
-                        className="bg-cover bg-center bg-no-repeat h-screen w-full"
+                        className="bg-cover bg-center bg-no-repeat xl:h-screen w-full"
                         style={{
                             backgroundImage: "url(/background_top.jpg)",
                         }}

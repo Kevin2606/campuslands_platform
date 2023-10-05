@@ -4,10 +4,10 @@ import "../../../assets/css/LandingPage.css"
 export const MainMid = () => {
     return (
         <>
-            <div className="relative triangulo grid grid-cols-3 gap-4 bg-gray-100 h-96 items-center justify-center">
+            <div className="pb-16 relative triangulo grid grid-cols-3 gap-4 bg-gray-100 h-96 items-center justify-center">
                 <Card classNames={{
                     base: "bg-transparent text-black",
-                    header: "text-2xl text-center justify-center items-center font-black",
+                    header: "text-xl text-center justify-center items-center font-black",
                     body: "text-center justify-center items-center text-lg",
                 }}
                 shadow="none"
@@ -21,7 +21,7 @@ export const MainMid = () => {
                 </Card>
                 <Card classNames={{
                     base: "bg-transparent text-black",
-                    header: "text-2xl text-center justify-center items-center font-black",
+                    header: "text-xl text-center justify-center items-center font-black",
                     body: "text-center justify-center items-center text-lg",
                 }}
                 shadow="none">
@@ -34,7 +34,7 @@ export const MainMid = () => {
                 </Card>
                 <Card classNames={{
                     base: "bg-transparent text-black",
-                    header: "text-2xl text-center justify-center items-center font-black",
+                    header: "text-xl text-center justify-center items-center font-black",
                     body: "text-center justify-center items-center text-lg",
                 }}
                 shadow="none">

@@ -70,6 +70,7 @@ export const MainTop = () => {
                         width={100}
                         classNames={{
                             img: `col-start-1 row-start-1 rounded-lg`,
+                            
                         }}
                     />
                     <Image

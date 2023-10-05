@@ -3,7 +3,7 @@ export const Footer = () => {
         <>
             <div className="w-full">
                 <p className="w-full text-center text-2xl font-thin">
-                    Hecho con amor 💝
+                    Hecho con 💝
                 </p>
             </div>
             <div className="flex flex-row justify-between p-10 pt-3">
@@ -64,7 +64,7 @@ export const Footer = () => {
                 </div>
                 <div className="flex flex-col gap-3">
                     <p className="text-2xl font-normal text-center">
-                        Campuslands
+                        EduPlatform
                     </p>
                     <div className="flex flex-row gap-5">
                         <svg
