@@ -3,10 +3,29 @@ import { Navigator } from "../components/navigator/Navigator";
 import { CardComentarios } from "../components/videos/CardComentarios";
 import { Accordion, AccordionItem } from "@nextui-org/react";
 import { CardNewComentario } from "../components/videos/CardNewComentario";
+//TODO: borrar esta linea
+import { javascript } from "./prueba";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 export const Videos = () => {
-    const defaultContent =
-        "lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+    const [dataVideos, setDataVideos] = useState([]);
+    const { name_curso } = useParams();
+    const getAllVideosCourse = async () => {
+        const url = 
+        `http://192.168.128.23:5010/cursos/v2?course=${name_curso}`
+        //const dataVid = await (await fetch(url)).json();
+        setDataVideos(javascript);
+    };
+    useEffect(() => {
+        getAllVideosCourse();
+    }, []);
+
+    const handleClick = (nameVideo, indexSeccion) => {
+        console.log(nameVideo, indexSeccion);
+        //TODO: llamar a la api para obtener el video
+    }
+
     return (
         <>
             <section className="bg-[#222831]">
@@ -27,33 +46,29 @@ export const Videos = () => {
                         </div>
                         <div className="border-[#666] border-y-1 max-h-56 lg:border-x-1 lg:rounded-xl lg:flex-1 lg:max-h-[26rem] xl:max-h-[31.5rem] 2xl:max-h-[38.5rem] overflow-y-scroll">
                             <Accordion>
-                                <AccordionItem
-                                    key="1"
-                                    aria-label="Accordion 1"
-                                    title="Accordion 1"
-                                >
-                                    {defaultContent}
-                                </AccordionItem>
-                                <AccordionItem
-                                    key="2"
-                                    aria-label="Accordion 2"
-                                    title="Accordion 2"
-                                >
-                                    {defaultContent}
-                                </AccordionItem>
-                                <AccordionItem
-                                    key="3"
-                                    aria-label="Accordion 3"
-                                    title="Accordion 3"
-                                >
-                                    {defaultContent}
-                                </AccordionItem>
+                                {dataVideos?.videos?.map(
+                                    (video, key) => (
+                                        (
+                                            <AccordionItem
+                                                key={key}
+                                                aria-label={video.sectionName}
+                                                title={video.sectionName}
+                                            >
+                                                {video.videos.map((v, k) => (
+                                                    <p key={k} className="py-1 border-b-1 cursor-pointer" onClick={() => handleClick(v.video, key)}>{v.Titulo}</p>
+                                                ))}
+                                            </AccordionItem>
+                                        )
+                                    )
+                                )}
                             </Accordion>
                         </div>
                     </div>
                     {/* Seccion comentarios */}
                     {/* <CardNewComentario /> */}
                     {/* Componente comentarios */}
+                    <CardComentarios />
+                    <CardComentarios />
                     <CardComentarios />
                 </div>
             </section>
