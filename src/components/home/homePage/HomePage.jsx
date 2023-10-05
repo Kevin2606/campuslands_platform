@@ -1,7 +1,7 @@
 import React from "react";
 import { CardCursos } from "./CardCursos";
 import { Navigator } from "../../navigator/Navigator";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@nextui-org/react";
 
 export const HomePage = () => {
@@ -60,6 +60,10 @@ export const HomePage = () => {
             },
         ],
     };
+    const navigate = useNavigate();
+    const pressButton = () => {
+        navigate(dataHome.pathLastCourse);
+    };
     return (
         <>
             <div className="bg-[#222831]">
@@ -75,9 +79,7 @@ export const HomePage = () => {
                             <h1 className="text-5xl text-center">
                                 {dataHome.nameLastCourse}
                             </h1>
-                            <Link to={dataHome.pathLastCourse}>
-                                <Button color="warning">Ver</Button>
-                            </Link>
+                            <Button onPress={pressButton} color="warning">Ver</Button>
                         </div>
                     </div>
                     <div className="flex flex-col items-center gap-5">
